@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FilmPage it renders 1`] = `
+Array [
+  <div
+    className="HeroImage__Container-ljnxwg-0 PIYbc"
+  >
+    <picture>
+      <div
+        className="HeroImage__Image-ljnxwg-1 iIQYpF"
+      />
+    </picture>
+  </div>,
+  <div
+    className="filmId__DetailsContainer-q2shma-0 euPiVg"
+  >
+    <div
+      className="filmId__Details-q2shma-1 pGFZW"
+    >
+      <h1
+        className="filmId__Title-q2shma-2 jwHjfV title"
+      >
+        ACADEMY DINOSAUR
+      </h1>
+      <div
+        className="filmId__Tags-q2shma-3 kCyOOj"
+      >
+        <span
+          className="filmId__Tag-q2shma-4 bzxaUC release-year"
+        >
+          2006
+        </span>
+        <span
+          className="filmId__Tag-q2shma-4 bzxaUC rating"
+        >
+          PG
+        </span>
+        <span
+          className="filmId__Tag-q2shma-4 bzxaUC duration"
+        >
+          1h 26m
+        </span>
+      </div>
+      <div
+        className="filmId__Actors-q2shma-5 kMvRcI"
+      >
+        <span
+          className="actors"
+        >
+          PENELOPE GUINESS, CHRISTIAN GABLE
+        </span>
+      </div>
+      <div
+        className="filmId__Description-q2shma-6 hHbVjN"
+      >
+        <span
+          className="description"
+        >
+          A Epic Drama of a Feminist And a Mad Scientist who must Battle a Teacher in The Canadian Rockies
+        </span>
+      </div>
+    </div>
+  </div>,
+]
+`;
