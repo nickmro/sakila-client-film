@@ -1,10 +1,10 @@
-import { NextPage } from "next";
-import { useMemo } from "react";
-import styled from "styled-components";
-import { getFilm } from "../../apollo/film";
-import HeroImage from "../../components/HeroImage";
-import { filmDuration } from "../../helpers/film";
-import { Film } from "../../types/film";
+import React, { useMemo } from 'react';
+import { NextPage } from 'next';
+import styled from 'styled-components';
+import { getFilm } from '../../apollo/film';
+import HeroImage from '../../components/HeroImage';
+import { filmDuration } from '../../helpers/film';
+import { Film } from '../../types/film';
 
 const DetailsContainer = styled.div`
   width: 100%;
@@ -21,7 +21,7 @@ const Title = styled.h1`
   font-size: 28px;
   margin-top: 0;
   margin-bottom: 10px;
-`
+`;
 
 const Tags = styled.div`
   display: flex;
@@ -52,14 +52,12 @@ export interface FilmPageProps {
   film?: Film;
 }
 
-export const FilmPage: NextPage<FilmPageProps> = props => {
+export const FilmPage: NextPage<FilmPageProps> = (props) => {
   const { film } = props;
 
-  const actors = useMemo<string | undefined>(() => {
-    return film?.actors
-      .map(actor => `${actor.firstName} ${actor.lastName}`)
-      .join(", ");
-  }, [film]);
+  const actors = useMemo<string | undefined>(() => film?.actors
+    .map((actor) => `${actor.firstName} ${actor.lastName}`)
+    .join(', '), [film]);
 
   return (
     <>
@@ -67,7 +65,7 @@ export const FilmPage: NextPage<FilmPageProps> = props => {
         <p>Not Found</p>
       ) : (
         <>
-          <HeroImage/>
+          <HeroImage />
           <DetailsContainer>
             <Details>
               <Title className="title">{film.title}</Title>
@@ -87,21 +85,20 @@ export const FilmPage: NextPage<FilmPageProps> = props => {
         </>
       )}
     </>
-  )
-}
+  );
+};
 
-FilmPage.getInitialProps = async(ctx) => {
+FilmPage.getInitialProps = async (ctx) => {
   const { filmId: filmIdParam } = ctx.query;
 
   try {
     const filmId = filmIdParam as string;
 
     const { data } = await getFilm(parseInt(filmId, 10));
-  
     return { film: data?.film };
   } catch {
-    return { film: undefined }
+    return { film: undefined };
   }
-}
+};
 
 export default FilmPage;

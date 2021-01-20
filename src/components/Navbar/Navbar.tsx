@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 
 const Header = styled.header`
@@ -20,7 +21,7 @@ export interface NavbarProps {
   homePageUrl: string;
 }
 
-export const Navbar: React.FC<NavbarProps> = props => {
+export const Navbar: React.FC<NavbarProps> = (props) => {
   const { homePageUrl } = props;
 
   return (
@@ -30,6 +31,6 @@ export const Navbar: React.FC<NavbarProps> = props => {
       </Header>
     </div>
   );
-}
+};
 
 export default Navbar;

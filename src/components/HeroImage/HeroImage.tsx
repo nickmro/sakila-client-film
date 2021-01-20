@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -16,16 +17,16 @@ const Image = styled.div`
   background-color: #ccc;
 `;
 
-export const HeroImage: React.FC<{ src?: string; alt?: string; }> = props => {
+export const HeroImage: React.FC<{ src?: string; alt?: string; }> = (props) => {
   const { alt, src } = props;
 
   return (
     <Container>
       <picture>
-        <Image src={src} alt={alt}/>
+        <Image src={src} alt={alt} />
       </picture>
     </Container>
   );
-}
+};
 
 export default HeroImage;

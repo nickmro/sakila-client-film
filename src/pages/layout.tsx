@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 import Navbar from '../components/Navbar';
 import { getHomePageUrl } from '../config/env';
@@ -8,13 +9,15 @@ const Container = styled.div`
   max-width: 1440px;
 `;
 
-export const Layout: React.FC = props => {
+export const Layout: React.FC = (props) => {
   const { children } = props;
 
   return (
     <Container>
-      <Navbar homePageUrl={getHomePageUrl()}/>
+      <Navbar homePageUrl={getHomePageUrl()} />
       {children}
     </Container>
   );
-}
+};
+
+export default Layout;

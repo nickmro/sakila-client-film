@@ -1,11 +1,12 @@
 import {
   ApolloClient,
+  ApolloQueryResult,
   createHttpLink,
   gql,
   InMemoryCache,
-} from "@apollo/client";
-import { getFilmServiceUrl } from "../config/env";
-import { Film } from "../types/film";
+} from '@apollo/client';
+import { getFilmServiceUrl } from '../config/env';
+import { Film } from '../types/film';
 
 const FILM_QUERY = gql`
   query Film($filmId: Int!) {
@@ -32,9 +33,9 @@ const FILMS_QUERY = gql`
       title
     }
   }
-`
+`;
 
-const filmClient = new ApolloClient({
+const filmClient = () => new ApolloClient({
   ssrMode: true,
   link: createHttpLink({
     uri: getFilmServiceUrl(),
@@ -43,15 +44,15 @@ const filmClient = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-export const getFilm = async (filmId: number) => {
-  return filmClient.query<{ film: Film }>({
-    query: FILM_QUERY,
-    variables: { filmId },
-  })
-}
+export const getFilm = async (filmId: number): Promise<ApolloQueryResult<{
+  film: Film
+}>> => filmClient().query<{ film: Film }>({
+  query: FILM_QUERY,
+  variables: { filmId },
+});
 
-export const getFilms = async () => {
-  return filmClient.query<{ films: Film[] }>({
-    query: FILMS_QUERY,
-  })
-}
+export const getFilms = async (): Promise<ApolloQueryResult<{
+  films: Film[]
+}>> => filmClient().query<{ films: Film[] }>({
+  query: FILMS_QUERY,
+});
