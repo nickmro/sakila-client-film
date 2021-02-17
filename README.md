@@ -58,6 +58,5 @@ npm test -- -u
 
 - Linter
 - Docker
-- Alias module paths
 - SEO optimizations
 - CI

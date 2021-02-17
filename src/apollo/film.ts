@@ -5,8 +5,8 @@ import {
   gql,
   InMemoryCache,
 } from '@apollo/client';
-import { getFilmServiceUrl } from '../config/env';
-import { Film } from '../types/film';
+import { getFilmServiceUrl } from '~/config/env';
+import { Film } from '~/types/film';
 
 const FILM_QUERY = gql`
   query Film($filmId: Int!) {

@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { FilmPage } from './[filmId]';
+import { FilmPage } from './[filmId].page';
 
 const film = {
   filmId: 1,
@@ -25,7 +25,7 @@ const film = {
 
 describe('FilmPage', () => {
   beforeEach(() => {
-    jest.mock('../../apollo/film');
+    jest.mock('~/apollo/film');
   });
 
   test('it renders', () => {
@@ -35,37 +35,37 @@ describe('FilmPage', () => {
 
   test('it renders the film title', () => {
     const filmPage = renderer.create(<FilmPage film={film} />);
-    const title = filmPage.root.findByProps({ className: 'title' }).props.children;
-    expect(title).toEqual(film.title);
+    const title = filmPage.root.findByProps({ children: film.title });
+    expect(title).toBeTruthy();
   });
 
   test('it renders the description', () => {
     const filmPage = renderer.create(<FilmPage film={film} />);
-    const description = filmPage.root.findByProps({ className: 'description' }).props.children;
-    expect(description).toEqual(film.description);
+    const description = filmPage.root.findByProps({ children: film.description });
+    expect(description).toBeTruthy();
   });
 
   test('it renders the rating', () => {
     const filmPage = renderer.create(<FilmPage film={film} />);
-    const rating = filmPage.root.findByProps({ className: 'rating' }).props.children;
-    expect(rating).toEqual(film.rating);
+    const rating = filmPage.root.findByProps({ children: film.rating });
+    expect(rating).toBeTruthy();
   });
 
   test('it renders the duration', () => {
     const filmPage = renderer.create(<FilmPage film={film} />);
-    const duration = filmPage.root.findByProps({ className: 'duration' }).props.children;
-    expect(duration).toEqual('1h 26m');
+    const duration = filmPage.root.findByProps({ children: '1h 26m' });
+    expect(duration).toBeTruthy();
   });
 
   test('it renders the release year', () => {
     const filmPage = renderer.create(<FilmPage film={film} />);
-    const releaseYear = filmPage.root.findByProps({ className: 'release-year' }).props.children;
-    expect(releaseYear).toEqual(film.releaseYear);
+    const releaseYear = filmPage.root.findByProps({ children: film.releaseYear });
+    expect(releaseYear).toBeTruthy();
   });
 
   test('it renders the actors', () => {
     const filmPage = renderer.create(<FilmPage film={film} />);
-    const actors = filmPage.root.findByProps({ className: 'actors' }).props.children;
-    expect(actors).toEqual('PENELOPE GUINESS, CHRISTIAN GABLE');
+    const actors = filmPage.root.findByProps({ children: 'PENELOPE GUINESS, CHRISTIAN GABLE' });
+    expect(actors).toBeTruthy();
   });
 });

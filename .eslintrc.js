@@ -21,7 +21,7 @@ module.exports = {
   },
   plugins: [
     'react',
-    '@typescript-eslint',
+    '@typescript-eslint'
   ],
   rules: {
     '@typescript-eslint/no-use-before-define': ['error'],
@@ -45,7 +45,7 @@ module.exports = {
     'react/jsx-filename-extension': [
       'error',
       {
-        extensions: ['.tsx'],
+        extensions: ['.ts', '.tsx'],
       },
     ],
     'react/jsx-props-no-spreading': 'off',

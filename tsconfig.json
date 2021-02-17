@@ -1,5 +1,11 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "~/*": [
+        "src/*"
+      ],
+    },
     "target": "esnext",
     "lib": [
       "dom",
@@ -24,6 +30,7 @@
     "**/*.tsx"
   ],
   "exclude": [
+    ".next",
     "node_modules"
   ]
 }

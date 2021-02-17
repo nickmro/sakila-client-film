@@ -1,10 +1,10 @@
 import React, { useMemo } from 'react';
 import { NextPage } from 'next';
 import styled from 'styled-components';
-import { getFilm } from '../../apollo/film';
-import HeroImage from '../../components/HeroImage';
-import { filmDuration } from '../../helpers/film';
-import { Film } from '../../types/film';
+import { getFilm } from '~/apollo/film';
+import HeroImage from '~/components/HeroImage';
+import { filmDuration } from '~/helpers/film';
+import { Film } from '~/types/film';
 
 const DetailsContainer = styled.div`
   width: 100%;
@@ -68,17 +68,17 @@ export const FilmPage: NextPage<FilmPageProps> = (props) => {
           <HeroImage />
           <DetailsContainer>
             <Details>
-              <Title className="title">{film.title}</Title>
+              <Title>{film.title}</Title>
               <Tags>
-                <Tag className="release-year">{film.releaseYear}</Tag>
-                <Tag className="rating">{film.rating}</Tag>
-                <Tag className="duration">{filmDuration(film.length)}</Tag>
+                <Tag>{film.releaseYear}</Tag>
+                <Tag>{film.rating}</Tag>
+                <Tag>{filmDuration(film.length)}</Tag>
               </Tags>
               <Actors>
-                <span className="actors">{actors}</span>
+                <span>{actors}</span>
               </Actors>
               <Description>
-                <span className="description">{film.description}</span>
+                <span>{film.description}</span>
               </Description>
             </Details>
           </DetailsContainer>
