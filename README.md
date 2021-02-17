@@ -56,7 +56,6 @@ npm test -- -u
 
 ## Todo
 
-- Linter
 - Docker
 - SEO optimizations
 - CI
