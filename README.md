@@ -1,4 +1,5 @@
 # Sakila Film Client
+[![Build Status](https://travis-ci.com/nickmro/sakila-client-film.svg?branch=master)](https://travis-ci.com/nickmro/sakila-client-film)
 
 ## Introduction
 
@@ -58,4 +59,3 @@ npm test -- -u
 
 - Docker
 - SEO optimizations
-- CI
