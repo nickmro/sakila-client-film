@@ -37,6 +37,15 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) in a browser.
 
+## Docker
+
+```bash
+docker build -t sakila/client-film .
+docker run --env-file ./.env.local -dp 3000:3000 sakila/client-film
+```
+
+Open [http://localhost:3000](http://localhost:3000) in a browser.
+
 ## Environment Variables
 #### Runtime
 | name                   | description                                     | type    | optional | default      |
@@ -57,5 +66,6 @@ npm test -- -u
 
 ## Todo
 
-- Docker
+- Logging
+- Style optimizations
 - SEO optimizations
