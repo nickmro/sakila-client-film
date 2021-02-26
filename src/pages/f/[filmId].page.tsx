@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import { NextPage } from 'next';
+import Head from 'next/head';
 import styled from 'styled-components';
 import { getFilm } from '~/apollo/film';
 import HeroImage from '~/components/HeroImage';
@@ -65,6 +66,10 @@ export const FilmPage: NextPage<FilmPageProps> = (props) => {
         <p>Not Found</p>
       ) : (
         <>
+          <Head>
+            <title>{`${film.title} | Sakila`}</title>
+            <meta name="description" content={film.description} />
+          </Head>
           <HeroImage />
           <DetailsContainer>
             <Details>
