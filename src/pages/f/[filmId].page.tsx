@@ -2,7 +2,8 @@ import React, { useMemo } from 'react';
 import { NextPage } from 'next';
 import Head from 'next/head';
 import styled from 'styled-components';
-import { getFilm } from '~/apollo/film';
+import { gql } from '@apollo/client';
+import filmClient from '~/apollo/film';
 import HeroImage from '~/components/HeroImage';
 import { filmDuration } from '~/helpers/film';
 import { Film } from '~/types/film';
@@ -48,6 +49,24 @@ const Actors = styled.div`
 const Description = styled.div`
   font-size: 18px;
   margin-bottom: 10px;
+`;
+
+const FILM_QUERY = gql`
+  query Film($filmId: Int!) {
+    film(filmId: $filmId) {
+      filmId
+      title
+      description
+      length
+      rating
+      releaseYear
+      actors {
+        actorId
+        firstName
+        lastName
+      }
+    }
+  }
 `;
 
 export interface FilmPageProps {
@@ -101,7 +120,11 @@ FilmPage.getInitialProps = async (ctx) => {
   try {
     const filmId = filmIdParam as string;
 
-    const { data } = await getFilm(parseInt(filmId, 10));
+    const { data } = await filmClient().query<{ film: Film }>({
+      query: FILM_QUERY,
+      variables: { filmId },
+    });
+
     return { film: data?.film };
   } catch {
     return { film: undefined };
