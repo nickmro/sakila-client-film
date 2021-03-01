@@ -5,7 +5,7 @@ const HOMEPAGE_URL = process.env.HOMEPAGE_URL;
 /**
  * Returns the home page URL.
  */
-export const getHomePageUrl = (): string => HOMEPAGE_URL;
+export const getHomePageUrl = (path = ''): string => HOMEPAGE_URL + path;
 
 /**
  * Returns the film service URL.

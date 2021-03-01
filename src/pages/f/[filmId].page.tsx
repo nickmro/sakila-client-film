@@ -6,6 +6,7 @@ import { getFilm } from '~/apollo/film';
 import HeroImage from '~/components/HeroImage';
 import { filmDuration } from '~/helpers/film';
 import { Film } from '~/types/film';
+import { filmSchema } from '~/helpers/jsonld';
 
 const DetailsContainer = styled.div`
   width: 100%;
@@ -69,6 +70,7 @@ export const FilmPage: NextPage<FilmPageProps> = (props) => {
           <Head>
             <title>{`${film.title} | Sakila`}</title>
             <meta name="description" content={film.description} />
+            <script type="application/ld+json">{JSON.stringify(filmSchema(film))}</script>
           </Head>
           <HeroImage />
           <DetailsContainer>

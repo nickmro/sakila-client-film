@@ -67,5 +67,4 @@ npm test -- -u
 ## Todo
 
 - Logging
-- JSON+LD
 - SEO optimizations
